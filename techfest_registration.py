@@ -20,6 +20,17 @@ if num_parti > 0:
         participant = participants[index - 1]
         print(f"{index}. {participant['name']} - {participant['track']}")
         index += 1
+
+
+    unique_courses = {p["track"] for p in participants}
+    if len(unique_courses) < 2:
+        print("\nNot enough variety in tracks.")
+    else:
+        print(f"\nTracks offered in this event: ")
+        for track in unique_courses:
+            print(track)
+
+
 else:
     print("Invaild number of participants.")
     exit()
