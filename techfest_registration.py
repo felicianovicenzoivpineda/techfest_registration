@@ -41,10 +41,18 @@ if num_parti > 0:
             list_names.add(name)
 
     if duplicates:
-        print(f"\nDuplicate participants names:{','.join(duplicates)}")
+        print(f"\nDuplicate name found:{','.join(duplicates)}")
     else:
         print("\nNo duplicate names.")
 
+    track_count = {}
+    for participant in participants:
+        track = participant["track"]
+        track_count[track] = track_count.get(track, 0) + 1
+
+    print("\nParticipant per track:")
+    for track, count in sorted(track_count.items()):
+        print(f"{track}: {count}")
 else:
     print("Invaild number of participants.")
     exit()
