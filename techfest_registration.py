@@ -1,23 +1,32 @@
-parti_name = []
-parti_course = []
+from sys import exec_prefix
+
+
+participants =[]
 print("Welcome to SMIT TechFest!")
 print("Event organized by Feliciano Vicenzo Pineda IV of APPDAET BTCS1")
 
-num_parti = input(int("How many participants will register?"))
-while True:
-    if num_parti < 0:
-        print("Invaild number of participants.")
-        break
-    else:
-        continue
-for i in range(len(num_parti)):
-    parti_name.append(input("\nEnter participant's name: "))
-    parti_course.append(input("\nEnter chosen track: "))
+num_parti = int(input("\nHow many participants will register?"))
 
-participant = {"parti": parti_name, "course": parti_course}
+if num_parti > 0:
+    for i in range(num_parti):
+        name = (input("\nEnter participant's name: "))
+        course = (input("\nEnter chosen track: "))
+        participant = {"name": name, "track": course}
+        participants.append(participant)
 
-print("\nRegistered Participants:")
-index = 1
-while index < len(parti_name):
-    print(participant)
-    index += 1
+    print("\nRegistered Participants:")
+    index = 1
+    while index <= len(participants):
+        participant = participants[index - 1]
+        print(f"{index}. {participant['name']} - {participant['track']}")
+        index += 1
+else:
+    print("Invaild number of participants.")
+    exit()
+
+
+
+
+
+
+
