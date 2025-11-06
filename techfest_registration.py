@@ -30,6 +30,20 @@ if num_parti > 0:
         for track in unique_courses:
             print(track)
 
+    list_names = set()
+    duplicates = set()
+
+    for participant in participants:
+        name = participant["name"]
+        if name in list_names:
+            duplicates.add(name)
+        else:
+            list_names.add(name)
+
+    if duplicates:
+        print(f"\nDuplicate participants names:{','.join(duplicates)}")
+    else:
+        print("\nNo duplicate names.")
 
 else:
     print("Invaild number of participants.")
